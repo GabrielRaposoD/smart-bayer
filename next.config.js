@@ -1,4 +1,5 @@
 module.exports = {
+  target: "serverless",
   trailingSlash: false,
   webpack: (config, { webpack }) => {
     // Note: we provide webpack above so you should not `require` it
