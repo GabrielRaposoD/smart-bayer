@@ -1,6 +1,5 @@
 // Modules Import
 import { DefaultSeo } from 'next-seo'
-import SnackbarProvider from '@brancol/react-snackbar'
 
 // Application Imports
 import '@styles/tailwind.css'
@@ -19,9 +18,7 @@ function MyApp({ Component, pageProps, router }) {
           site_name: 'Smart Bayer',
         }}
       />
-      <SnackbarProvider defaultPosition="br">
-        <Component {...pageProps} />
-      </SnackbarProvider>
+      <Component {...pageProps} />
     </>
   )
 }

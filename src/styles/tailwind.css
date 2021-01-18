@@ -8,7 +8,7 @@
 
 /* Write you own custom component styles here */
 
-@font-face {
+/* @font-face {
   font-family: 'Text';
   src: url('./fonts/text.ttf') format('truetype') local('Text Light');
   font-weight: 200;
@@ -77,7 +77,7 @@
   font-weight: 900;
   font-style: normal;
   font-display: swap;
-}
+} */
 
 /* Start purging... */
 @tailwind utilities;
