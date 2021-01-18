@@ -1,0 +1,6 @@
+* {
+  font-family: 'text', sans-serif, Arial;
+  outline: none !important;
+  scroll-behavior: smooth;
+  font-display: swap;
+}
