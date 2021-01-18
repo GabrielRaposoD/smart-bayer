@@ -28,6 +28,7 @@
       "@store/*": ["store/*"],
       "@styles/*": ["styles/*"],
       "@typings/*": ["typings/*"],
+      "@mocks/*": ["mocks/*"],
     },
   },
   "include": [
