@@ -10,7 +10,7 @@ import { Introduction, VideoType, FarmerName } from '@components/Steps';
 const IndexPage: React.FC = () => {
   return (
     <MainLayout>
-      <VideoType />
+      <FarmerName />
     </MainLayout>
   );
 };
