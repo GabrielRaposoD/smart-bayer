@@ -28,3 +28,14 @@ export interface Company {
   description: string;
   products: Product[];
 }
+
+export interface Template {
+  id: number;
+  type: string;
+  steps: number[];
+}
+
+export interface Option {
+  label: string;
+  value: number | string;
+}
