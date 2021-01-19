@@ -5,7 +5,7 @@ import React from 'react';
 import { MainLayout } from '@layout/index';
 
 // Components Import
-import { Introduction, VideoType } from '@components/Steps';
+import { Introduction, VideoType, FarmerName } from '@components/Steps';
 
 const IndexPage: React.FC = () => {
   return (
