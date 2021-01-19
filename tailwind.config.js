@@ -1,7 +1,5 @@
 module.exports = {
-  purge: [
-    './src/**/*.{js,ts,jsx,tsx}',
-  ],
+  purge: ['./src/**/*.{js,ts,jsx,tsx}'],
   prefix: '',
   important: false,
   separator: ':',
@@ -9,27 +7,30 @@ module.exports = {
   theme: {
     extend: {
       transformOrigin: {
-        0: '0%'
+        0: '0%',
       },
       zIndex: {
-        '-1': '-1'
+        '-1': '-1',
       },
       colors: {
         transparent: 'transparent',
         black: '#000',
         white: '#fff',
         primary: '#8ad429',
+        shaft: '#373737',
+        green: '#8AD429',
         background: {
-          100: '#fff'
-        }
-      }
+          100: '#fff',
+        },
+      },
     },
     fontFamily: {
-      example: ['Example', 'Arial', 'sans-serif']
-    }
+      example: ['Example', 'Arial', 'sans-serif'],
+    },
   },
   variants: {
     backgroundColor: ['responsive', 'hover', 'focus', 'group-hover'],
     textColor: ['responsive', 'hover', 'focus', 'group-hover'],
-  }
-}
+  },
+  plugins: [require('@tailwindcss/forms')],
+};

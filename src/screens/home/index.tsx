@@ -1,18 +1,18 @@
 // Module Imports
-import React from 'react'
+import React from 'react';
 
 // Application Import
-import { MainLayout } from '@layout/index'
+import { MainLayout } from '@layout/index';
 
 // Components Import
-import { Introduction, VideoType } from '@components/Steps'
+import { Introduction, VideoType } from '@components/Steps';
 
 const IndexPage: React.FC = () => {
   return (
     <MainLayout>
       <VideoType />
     </MainLayout>
-  )
-}
+  );
+};
 
-export { IndexPage }
+export { IndexPage };
