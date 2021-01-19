@@ -9,7 +9,7 @@ import { Option } from '@typings/index';
 import { useInfo } from '@store/useInfo';
 
 const VideoType: React.FC = () => {
-  const { template, setTemplate, setSteps } = useInfo();
+  const { template, setTemplate } = useInfo();
 
   const mappedTemplates: Option[] = templates.map((template) => {
     return { value: template, label: template.type };
@@ -30,15 +30,13 @@ const VideoType: React.FC = () => {
             <SelectInput
               options={mappedTemplates}
               value={template}
-              onChange={(e) => {
-                setTemplate(e), setSteps(e.value.steps);
-              }}
+              onChange={(e) => setTemplate(e)}
             />
           </div>
         </div>
       </div>
       <div className='w-full mt-6'>
-        <Stepper step={1} />
+        <Stepper />
       </div>
     </div>
   );

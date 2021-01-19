@@ -3,6 +3,7 @@ import create from 'zustand';
 import { Option } from '@typings/index';
 
 type InfoStoreProps = {
+  currentStep: number;
   steps: number[];
   firstName: string;
   fullName: string;
@@ -12,6 +13,9 @@ type InfoStoreProps = {
   product: Option;
   experience: Option;
   template: Option;
+  decrementCurrentStep: () => void;
+  incrementCurrentStep: () => void;
+  setSteps: (steps) => void;
   setFirstName: (firstName: string) => void;
   setFullName: (fullName: string) => void;
   setEmail: (email: string) => void;
@@ -20,11 +24,11 @@ type InfoStoreProps = {
   setProduct: (product: Option) => void;
   setExperience: (experience: Option) => void;
   setTemplate: (template: Option) => void;
-  setSteps: (steps: number[]) => void;
 };
 
 export const useInfo = create<InfoStoreProps>((set) => ({
-  steps: [1, 2, 3],
+  currentStep: 0,
+  steps: [1, 2, 3, 4, 5, 6, 7, 8, 9],
   firstName: '',
   fullName: '',
   email: '',
@@ -33,6 +37,11 @@ export const useInfo = create<InfoStoreProps>((set) => ({
   product: null,
   experience: null,
   template: null,
+  decrementCurrentStep: () =>
+    set((state) => ({ currentStep: state.currentStep - 1 })),
+  incrementCurrentStep: () =>
+    set((state) => ({ currentStep: state.currentStep + 1 })),
+  setSteps: (steps) => set({ steps }),
   setFirstName: (firstName) => set({ firstName }),
   setFullName: (fullName) => set({ fullName }),
   setEmail: (email) => set({ email }),
@@ -41,5 +50,4 @@ export const useInfo = create<InfoStoreProps>((set) => ({
   setProduct: (product) => set({ product }),
   setExperience: (experience) => set({ experience }),
   setTemplate: (template) => set({ template }),
-  setSteps: (steps) => set({ steps }),
 }));

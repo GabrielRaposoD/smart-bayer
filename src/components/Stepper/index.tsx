@@ -1,35 +1,46 @@
 // Module Imports
-import React from 'react'
+import React from 'react';
 
 // Application Import
-import { ButtonState } from '@typings/index'
+import { ButtonState } from '@typings/index';
 
 // Components Import
-import { Button } from '@components/index'
+import { Button } from '@components/index';
+import { useInfo } from '@store/useInfo';
 
-interface StepperProps {
-  step: number
-}
+const Stepper: React.FC = () => {
+  const { currentStep, incrementCurrentStep, decrementCurrentStep } = useInfo();
 
-const Stepper: React.FC<StepperProps> = ({ step }) => {
-  if (step === 0) {
+  if (currentStep === 0) {
     return (
-      <div className="flex justify-start w-full">
-        <Button title="Começar" state={ButtonState.normal} />
+      <div className='flex justify-start w-full'>
+        <Button
+          title='Começar'
+          state={ButtonState.normal}
+          onClick={() => incrementCurrentStep()}
+        />
       </div>
-    )
+    );
   }
 
   return (
-    <div className="flex justify-start w-full space-x-4">
-      <div className="w-1/2">
-        <Button title="Voltar" state={ButtonState.inverse} />
+    <div className='flex justify-start w-full space-x-4'>
+      <div className='w-1/2'>
+        <Button
+          title='Voltar'
+          state={ButtonState.inverse}
+          onClick={() => decrementCurrentStep()}
+        />
       </div>
-      <div className="w-1/2">
-        <Button title="Continuar" state={ButtonState.disabled} />
+      <div className='w-1/2'>
+        <Button
+          title='Continuar'
+          state={ButtonState.disabled}
+          onClick={() => incrementCurrentStep()}
+        />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export { Stepper }
+export { Stepper };
