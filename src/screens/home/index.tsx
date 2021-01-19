@@ -11,13 +11,14 @@ import {
   FarmerName,
   InfoCompany,
   InfoService,
+  LoadingVideo,
 } from "@components/Steps";
 
 const IndexPage: React.FC = () => {
   return (
-    <MainLayout>
-      <InfoService />
-    </MainLayout>
+    // <MainLayout>
+    <LoadingVideo />
+    //</MainLayout>
   );
 };
 
