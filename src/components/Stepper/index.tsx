@@ -9,7 +9,7 @@ import { Button } from '@components/index';
 import { useInfo } from '@store/useInfo';
 
 interface StepperProps {
-  buttonState: ButtonState;
+  buttonState?: ButtonState;
 }
 
 const Stepper: React.FC<StepperProps> = ({ buttonState }) => {

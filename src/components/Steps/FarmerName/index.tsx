@@ -1,5 +1,5 @@
 // Module Imports
-import React, { useState } from 'react';
+import React from 'react';
 
 // Components Import
 import { Logo, Stepper } from '@components/index';
