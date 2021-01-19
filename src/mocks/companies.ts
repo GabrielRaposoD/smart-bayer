@@ -2,6 +2,7 @@ import { Company } from '@typings/index';
 
 export const companies: Company[] = [
   {
+    id: 1,
     name: 'Dekalb',
     description:
       'Dekalb, a marca que oferece tecnologia e inovação para superar os limites da produtividade',
@@ -47,6 +48,7 @@ export const companies: Company[] = [
     ],
   },
   {
+    id:2,
     name: 'Agroeste',
     description:
       'Agroeste, uma parceria feita especialmente para o seu negócio',
@@ -86,6 +88,7 @@ export const companies: Company[] = [
     ],
   },
   {
+    id: 3,
     name: 'Agroceres',
     description:
       'Sementes Agroceres, que está ao lado do produtor há mais de 75 anos',

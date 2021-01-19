@@ -14,7 +14,7 @@ const FarmerName: React.FC = () => {
             Qual primeiro nome do <br />
             agricultor?
           </h1>
-          <h3 className="mt-3 text-lg font-medium text-gray-600">
+          <h3 className="mt-3 text-base font-medium text-gray-600">
             O nome aparecerá no material que você pode visualizar ao lado.
           </h3>
           <div>

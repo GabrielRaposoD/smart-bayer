@@ -24,6 +24,7 @@ export interface Experience extends Item {
 }
 
 export interface Company {
+  id: number;
   name: string;
   description: string;
   products: Product[];
