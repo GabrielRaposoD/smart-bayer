@@ -6,3 +6,4 @@ export { InfoService } from './InfoService';
 export { InfoPersonal } from './InfoPersonal';
 export { InfoExperience } from './InfoExperience';
 export { VideoDone } from './VideoDone';
+export { LoadingVideo } from './LoadingVideo';

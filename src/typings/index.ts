@@ -40,3 +40,9 @@ export interface Option {
   label: string;
   value: Company | Service | Template | Experience | Product;
 }
+
+export interface ScreenComponent {
+  img: string;
+  Component: React.FC;
+  isCover?: boolean;
+}

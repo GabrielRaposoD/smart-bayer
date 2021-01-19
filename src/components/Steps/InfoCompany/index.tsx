@@ -5,7 +5,7 @@ import { companies } from '@mocks/companies';
 // Components Import
 import { Logo, Stepper } from '@components/index';
 import { SelectInput } from '@components/SelectInput';
-import { Option } from '@typings/index';
+import { ButtonState, Option } from '@typings/index';
 import { useInfo } from '@store/useInfo';
 
 const InfoCompany: React.FC = () => {
@@ -46,7 +46,7 @@ const InfoCompany: React.FC = () => {
             <div className='mt-6 text-base font-medium text-gray-600'>
               <label> Qual o Híbrido do milho?</label>
               <SelectInput
-                isDisabled
+                isDisabled={!company}
                 options={mappedProducts}
                 value={product}
                 onChange={(value) => setProduct(value)}
@@ -56,7 +56,11 @@ const InfoCompany: React.FC = () => {
         </div>
       </div>
       <div className='w-full mt-6'>
-        <Stepper step={1} />
+        <Stepper
+          buttonState={
+            company && product ? ButtonState.normal : ButtonState.disabled
+          }
+        />
       </div>
     </div>
   );

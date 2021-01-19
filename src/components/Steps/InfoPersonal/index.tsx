@@ -5,6 +5,7 @@ import React from 'react';
 import { Logo, Stepper } from '@components/index';
 import { useInfo } from '@store/useInfo';
 import { TextInput } from '@components/TextInput';
+import { ButtonState } from '@typings/index';
 
 const InfoPersonal: React.FC = () => {
   const { fullName, setFullName, email, setEmail } = useInfo();
@@ -46,7 +47,11 @@ const InfoPersonal: React.FC = () => {
         </div>
       </div>
       <div className='w-full mt-6'>
-        <Stepper step={1} />
+        <Stepper
+          buttonState={
+            email && fullName ? ButtonState.normal : ButtonState.disabled
+          }
+        />
       </div>
     </div>
   );

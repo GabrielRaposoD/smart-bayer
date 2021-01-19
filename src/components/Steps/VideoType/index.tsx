@@ -5,11 +5,11 @@ import { templates } from '@mocks/templates';
 // Components Import
 import { Logo, Stepper } from '@components/index';
 import { SelectInput } from '@components/SelectInput';
-import { Option } from '@typings/index';
+import { Option, ButtonState } from '@typings/index';
 import { useInfo } from '@store/useInfo';
 
 const VideoType: React.FC = () => {
-  const { template, setTemplate } = useInfo();
+  const { template, setTemplate, setSteps } = useInfo();
 
   const mappedTemplates: Option[] = templates.map((template) => {
     return { value: template, label: template.type };
@@ -30,13 +30,18 @@ const VideoType: React.FC = () => {
             <SelectInput
               options={mappedTemplates}
               value={template}
-              onChange={(e) => setTemplate(e)}
+              onChange={(e) => {
+                setTemplate(e);
+                setSteps(e.value.steps);
+              }}
             />
           </div>
         </div>
       </div>
       <div className='w-full mt-6'>
-        <Stepper />
+        <Stepper
+          buttonState={template ? ButtonState.normal : ButtonState.disabled}
+        />
       </div>
     </div>
   );

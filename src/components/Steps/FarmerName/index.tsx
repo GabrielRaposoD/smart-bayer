@@ -4,9 +4,11 @@ import React, { useState } from 'react';
 // Components Import
 import { Logo, Stepper } from '@components/index';
 import { TextInput } from '@components/TextInput';
+import { ButtonState } from '@typings/index';
+import { useInfo } from '@store/useInfo';
 
 const FarmerName: React.FC = () => {
-  const [farmerName, setFarmerName] = useState<string>('');
+  const { firstName, setFirstName } = useInfo();
 
   return (
     <div className='flex flex-col items-start justify-between h-full'>
@@ -23,14 +25,16 @@ const FarmerName: React.FC = () => {
           <div>
             <TextInput
               placeholder='Digite'
-              value={farmerName}
-              onChange={(value) => setFarmerName(value)}
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
             />
           </div>
         </div>
       </div>
       <div className='w-full mt-6'>
-        <Stepper step={1} />
+        <Stepper
+          buttonState={firstName ? ButtonState.normal : ButtonState.disabled}
+        />
       </div>
     </div>
   );

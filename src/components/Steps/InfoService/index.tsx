@@ -5,7 +5,7 @@ import { services } from '@mocks/services';
 // Components Import
 import { Logo, Stepper } from '@components/index';
 import { SelectInput } from '@components/SelectInput';
-import { Option } from '@typings/index';
+import { ButtonState, Option } from '@typings/index';
 import { useInfo } from '@store/useInfo';
 
 const InfoService: React.FC = () => {
@@ -19,7 +19,7 @@ const InfoService: React.FC = () => {
     <div className='flex flex-col items-start justify-between h-full'>
       <div className='flex flex-col'>
         <Logo />
-        <div className='mt-10'>
+        <div className='mt-16'>
           <h1 className='text-4xl font-bold leading-snug text-gray-800'>
             Quais são as informações do seu video?
           </h1>
@@ -38,7 +38,9 @@ const InfoService: React.FC = () => {
         </div>
       </div>
       <div className='w-full mt-6'>
-        <Stepper step={1} />
+        <Stepper
+          buttonState={service ? ButtonState.normal : ButtonState.disabled}
+        />
       </div>
     </div>
   );

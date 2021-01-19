@@ -8,7 +8,11 @@ import { ButtonState } from '@typings/index';
 import { Button } from '@components/index';
 import { useInfo } from '@store/useInfo';
 
-const Stepper: React.FC = () => {
+interface StepperProps {
+  buttonState: ButtonState;
+}
+
+const Stepper: React.FC<StepperProps> = ({ buttonState }) => {
   const { currentStep, incrementCurrentStep, decrementCurrentStep } = useInfo();
 
   if (currentStep === 0) {
@@ -35,7 +39,7 @@ const Stepper: React.FC = () => {
       <div className='w-1/2'>
         <Button
           title='Continuar'
-          state={ButtonState.disabled}
+          state={buttonState}
           onClick={() => incrementCurrentStep()}
         />
       </div>
