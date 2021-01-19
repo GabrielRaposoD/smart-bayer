@@ -5,7 +5,7 @@ import React from 'react';
 import { Logo } from '@components/index';
 
 //Aplications Import
-import { BiLoaderAlt } from 'react-icons/Bi';
+import { BiLoaderAlt } from 'react-icons/bi';
 
 const LoadingVideo: React.FC = () => {
   return (
