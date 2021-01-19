@@ -56,6 +56,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
 
   return (
     <Select
+      isSearchable={false}
       options={options}
       placeholder='Escolha'
       styles={inputStyles}
