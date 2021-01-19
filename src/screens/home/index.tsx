@@ -1,8 +1,8 @@
 // Module Imports
-import React from "react";
+import React from 'react';
 
 // Application Import
-import { MainLayout } from "@layout/index";
+import { MainLayout } from '@layout/index';
 
 // Components Import
 import {
@@ -14,12 +14,12 @@ import {
   InfoPersonal,
   VideoDone,
   InfoExperience,
-} from "@components/Steps";
+} from '@components/Steps';
 
 const IndexPage: React.FC = () => {
   return (
     <MainLayout>
-      <VideoDone />
+      <InfoCompany />
     </MainLayout>
   );
 };

@@ -5,14 +5,16 @@ import { Option } from '@typings/index';
 
 interface SelectInputProps {
   options: Option[];
-  value: Option;
+  value: any;
   onChange: (value) => void;
+  isDisabled?: boolean;
 }
 
 const SelectInput: React.FC<SelectInputProps> = ({
   options,
   value,
   onChange,
+  isDisabled,
 }) => {
   const inputStyles = {
     dropdownIndicator: (styles, state) => ({
@@ -56,6 +58,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
 
   return (
     <Select
+      isDisabled={isDisabled || false}
       isSearchable={false}
       options={options}
       placeholder='Escolha'

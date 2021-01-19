@@ -38,5 +38,5 @@ export interface Template {
 
 export interface Option {
   label: string;
-  value: number | string;
+  value: Company | Service | Template | Experience | Product;
 }
