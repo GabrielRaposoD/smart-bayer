@@ -9,13 +9,14 @@ import {
   Introduction,
   VideoType,
   FarmerName,
-  VideoInformation,
+  InfoCompany,
+  InfoService,
 } from "@components/Steps";
 
 const IndexPage: React.FC = () => {
   return (
     <MainLayout>
-      <VideoInformation />
+      <InfoService />
     </MainLayout>
   );
 };

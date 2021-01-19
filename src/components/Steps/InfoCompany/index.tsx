@@ -7,7 +7,7 @@ import { Logo, Stepper } from "@components/index";
 import { SelectInput } from "@components/SelectInput";
 import { Option } from "@typings/index";
 
-const VideoInformation: React.FC = () => {
+const InfoCompany: React.FC = () => {
   const mappedCompanies: Option[] = companies.map((company) => {
     return { value: company.id, label: company.name };
   });
@@ -50,4 +50,4 @@ const VideoInformation: React.FC = () => {
   );
 };
 
-export { VideoInformation };
+export { InfoCompany };
