@@ -1,10 +1,12 @@
 // Module Imports
-import React from "react";
+import React, { useState } from "react";
 
 // Components Import
 import { Logo, Stepper } from "@components/index";
+import { TextInput } from "@components/TextInput";
 
 const FarmerName: React.FC = () => {
+  const [farmerName, setFarmerName] = useState<string>("");
   return (
     <div className="flex flex-col items-start justify-between h-full">
       <div className="flex flex-col">
@@ -18,9 +20,11 @@ const FarmerName: React.FC = () => {
             O nome aparecerá no material que você pode visualizar ao lado.
           </h3>
           <div>
-            <h3 className="mt-3 text-2xl font-medium text-gray-600">
-              --input--
-            </h3>
+            <TextInput
+              placeholder="Digite"
+              value={farmerName}
+              onChange={(value) => setFarmerName(value)}
+            />
           </div>
         </div>
       </div>
