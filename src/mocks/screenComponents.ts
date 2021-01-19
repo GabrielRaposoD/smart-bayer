@@ -25,22 +25,31 @@ export const items: ScreenComponent[] = [
   {
     img: '/img/background-main-3.png',
     Component: FarmerName,
+    hasCard: true,
+    cardImg: 'img/preview-name.png',
   },
   {
     img: '/img/background-main-3.png',
     Component: InfoCompany,
+    hasCard: true,
+    cardImg: 'img/preview-corn.png',
   },
   {
     img: '/img/background-main-3.png',
     Component: InfoService,
+    hasCard: true,
+    cardImg: 'img/preview-service.png',
   },
   {
     img: '/img/background-main-3.png',
     Component: InfoExperience,
+    hasCard: true,
+    cardImg: 'img/preview-experience.png',
   },
   {
-    img: '/img/background-main-3.png',
+    img: '/img/background-main.png',
     Component: InfoPersonal,
+    isCover: true,
   },
   {
     img: '/img/background-main-3.png',
@@ -49,5 +58,6 @@ export const items: ScreenComponent[] = [
   {
     img: '/img/background-main-3.png',
     Component: VideoDone,
+    cardImg: 'img/preview-name.png',
   },
 ];

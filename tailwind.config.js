@@ -20,6 +20,7 @@ module.exports = {
         shaft: '#373737',
         green: '#8AD429',
         darkgreen: '#02543d',
+        snow: '#E5E5E5',
         background: {
           100: '#fff',
         },

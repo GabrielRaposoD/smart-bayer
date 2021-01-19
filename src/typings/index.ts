@@ -45,4 +45,6 @@ export interface ScreenComponent {
   img: string;
   Component: React.FC;
   isCover?: boolean;
+  hasCard?: boolean;
+  cardImg?: string;
 }

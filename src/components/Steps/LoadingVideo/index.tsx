@@ -6,8 +6,11 @@ import { Logo } from '@components/index';
 
 //Aplications Import
 import { BiLoaderAlt } from 'react-icons/bi';
+import { useInfo } from '@store/useInfo';
 
 const LoadingVideo: React.FC = () => {
+  const { incrementCurrentStep } = useInfo();
+  incrementCurrentStep();
   return (
     <div className='flex flex-col items-start min-h-screen'>
       <div className='flex flex-col w-full px-40 py-20'>
