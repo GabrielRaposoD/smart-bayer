@@ -1,5 +1,5 @@
 const Logo: React.FC = () => {
-  return <img src='/img/logo.svg' alt='Logo' className='w-56 h-10' />;
-};
+  return <img src="/img/logo.svg" alt="Logo" className="w-40 md:w-56" />
+}
 
-export { Logo };
+export { Logo }

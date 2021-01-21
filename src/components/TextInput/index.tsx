@@ -1,26 +1,34 @@
 // Module Imports
-import React from 'react';
+import React, { InputHTMLAttributes } from 'react'
+import cs from 'classnames'
+import { Field, ErrorMessage } from 'formik'
 
-interface TextInputProps {
-  placeholder: string;
-  value: string;
-  onChange: (value) => void;
+interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
+  placeholder: string
 }
 
-const TextInput: React.FC<TextInputProps> = ({
-  value,
-  onChange,
-  placeholder,
-}) => {
+const TextInput: React.FC<TextInputProps> = ({ id, name, placeholder }) => {
   return (
-    <input
-      type='text'
-      className='border-shaft hover:border-green focus:border-green focus:ring-0 w-full rounded-lg'
-      placeholder={placeholder}
-      value={value}
-      onChange={onChange}
-    />
-  );
-};
+    <Field name={name}>
+      {({ field, meta }) => (
+        <div className="flex flex-col">
+          <input
+            name={name}
+            type="text"
+            className={cs('focus:ring-0 w-full rounded-lg', {
+              'border-red-500 hover:border-red-500 focus:border-red-500': meta.error,
+              'border-shift hover:border-green focus:border-green': !meta.error,
+            })}
+            placeholder={placeholder}
+            {...field}
+          />
+          <p data-testid={`${id}-errorlabel`} className={cs('mt-2 text-sm text-red-500')}>
+            <ErrorMessage name={name} />
+          </p>
+        </div>
+      )}
+    </Field>
+  )
+}
 
-export { TextInput };
+export { TextInput }
