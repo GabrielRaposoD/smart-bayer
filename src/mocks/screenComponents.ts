@@ -16,6 +16,7 @@ export const items: ScreenComponent[] = [
     img: '/img/background-main.png',
     Component: Introduction,
     isCover: true,
+    hasMobileImg: true,
   },
   {
     img: '/img/background-main-2.png',

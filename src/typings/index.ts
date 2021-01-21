@@ -47,4 +47,5 @@ export interface ScreenComponent {
   isCover?: boolean;
   hasCard?: boolean;
   cardImg?: string;
+  hasMobileImg?: boolean;
 }

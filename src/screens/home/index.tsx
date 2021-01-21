@@ -22,6 +22,7 @@ const IndexPage: React.FC = () => {
       isCover={item.isCover}
       hasCard={item.hasCard}
       cardImg={item.cardImg}
+      hasMobileImg={item.hasMobileImg}
     >
       <item.Component />
     </MainLayout>

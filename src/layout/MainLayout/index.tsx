@@ -6,6 +6,7 @@ interface MainLayoutProps {
   isCover?: boolean;
   hasCard?: boolean;
   cardImg?: string;
+  hasMobileImg?: boolean;
 }
 
 const MainLayout: React.FC<MainLayoutProps> = ({
@@ -14,13 +15,22 @@ const MainLayout: React.FC<MainLayoutProps> = ({
   isCover = false,
   hasCard = false,
   cardImg,
+  hasMobileImg = false,
 }: MainLayoutProps) => {
   return (
-    <div className='flex justify-between w-full min-h-screen'>
-      <div className='flex flex-col w-1/2 min-h-full px-40 py-20'>
+    <div className='md:flex-row flex flex-col-reverse justify-between w-full max-h-screen min-h-screen'>
+      <div
+        className={cs(
+          'md:w-1/2 md:min-h-screen md:px-40 md:py-20 flex flex-col'
+        )}
+      >
         {children}
       </div>
-      <div className='relative flex flex-col items-center w-1/2 min-h-full'>
+      <div
+        className={cs(
+          'md:w-1/2 md:min-h-full relative flex flex-col items-center'
+        )}
+      >
         {hasCard && (
           <div className='bg-snow mt-28 relative z-10 w-6/12 py-2 text-center rounded-lg'>
             <p>o material abaixo é apenas um modelo para visualização</p>
@@ -39,8 +49,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({
         <img
           src={img}
           alt='Background'
-          className={cs('w-full max-h-screen absolute', {
-            'object-cover': isCover,
+          className={cs('md:w-full md:max-h-screen md:absolute md:block', {
+            'md:object-cover object-top': isCover,
+            hidden: !hasMobileImg,
           })}
         />
       </div>
