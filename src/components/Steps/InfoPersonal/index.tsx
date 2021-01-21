@@ -18,7 +18,7 @@ const InfoPersonal: React.FC = () => {
   const { fullName, setFullName, email, setEmail, incrementCurrentStep } = useInfo()
 
   return (
-    <div className="flex flex-col items-start justify-between h-full">
+    <div className="flex flex-col items-start justify-between h-full px-6 md:px-0 md:min-h-0 md:pb-0 pb-10 min-h-screen">
       <Formik
         initialValues={{ fullname: '', email: '' }}
         validationSchema={validationSchema}
@@ -28,11 +28,13 @@ const InfoPersonal: React.FC = () => {
           incrementCurrentStep()
         }}
       >
-        <form>
+        <form className="w-full h-full md:min-h-0 min-h-screen md:pb-0 pb-10 flex flex-col justify-between">
           <div className="flex flex-col">
-            <Logo />
+            <div className="mt-6 md:mt-0">
+              <Logo />
+            </div>
             <div className="mt-16">
-              <h1 className="text-4xl font-bold leading-snug text-gray-800">
+              <h1 className="text-2xl md:text-4xl font-bold leading-snug text-gray-800">
                 Insira suas informações
                 <br />
                 pessoais

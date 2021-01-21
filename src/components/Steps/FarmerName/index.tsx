@@ -17,7 +17,7 @@ const FarmerName: React.FC = () => {
   const { setFirstName, incrementCurrentStep } = useInfo()
 
   return (
-    <div className="flex flex-col items-start justify-between h-full">
+    <div className="flex flex-col items-start justify-between h-full px-6 md:px-0 md:min-h-0 min-h-screen">
       <Formik
         initialValues={{ firstName: '' }}
         validationSchema={validationSchema}
@@ -26,11 +26,13 @@ const FarmerName: React.FC = () => {
           incrementCurrentStep()
         }}
       >
-        <form>
+        <form className="w-full h-full md:min-h-0 min-h-screen md:pb-0 pb-10 flex flex-col justify-between">
           <div className="flex flex-col">
-            <Logo />
+            <div className="mt-6 md:mt-0">
+              <Logo />
+            </div>
             <div className="mt-16">
-              <h1 className="text-4xl font-bold leading-snug text-gray-800">
+              <h1 className="text-2xl md:text-4xl font-bold leading-snug text-gray-800">
                 Qual primeiro nome do <br />
                 agricultor?
               </h1>

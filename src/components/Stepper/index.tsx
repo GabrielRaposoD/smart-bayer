@@ -11,13 +11,11 @@ import { useInfo } from '@store/useInfo'
 
 interface StepperProps {
   buttonState?: ButtonState
-  onSubmit?: () => void
 }
 
-const Stepper: React.FC<StepperProps> = ({ buttonState, onSubmit }) => {
+const Stepper: React.FC<StepperProps> = ({ buttonState }) => {
   const { currentStep, incrementCurrentStep, decrementCurrentStep } = useInfo()
   const formik = useFormikContext()
-  console.log(formik)
 
   if (currentStep === 0) {
     return (

@@ -11,7 +11,7 @@ const validationSchema = Yup.object({
 })
 
 export function useInfoHook() {
-  const state = useInfo()
+  const { firstName, fullName, email } = useInfo()
 
   async function checkValid(payload: any) {
     try {
@@ -24,8 +24,8 @@ export function useInfoHook() {
   }
 
   useEffect(() => {
-    console.log(state)
-  }, [])
+    console.log(firstName, fullName, email)
+  }, [firstName, fullName, email])
 
   return {
     operations: { checkValid },

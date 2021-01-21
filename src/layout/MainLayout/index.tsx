@@ -20,7 +20,12 @@ const MainLayout: React.FC<MainLayoutProps> = ({
   return (
     <div className="md:flex-row flex flex-col-reverse md:justify-between justify-end w-full min-h-screen">
       <div className={cs('md:w-1/2 md:min-h-screen md:px-40 md:py-20 flex flex-col')}>{children}</div>
-      <div className={cs('md:w-1/2 md:min-h-full relative flex flex-col items-center')}>
+      <div
+        className={cs('md:w-1/2 md:min-h-full relative md:flex flex-col items-center', {
+          flex: hasMobileImg,
+          hidden: !hasMobileImg,
+        })}
+      >
         {hasCard && (
           <div className="bg-snow mt-28 relative z-10 w-6/12 py-2 text-center rounded-lg">
             <p>o material abaixo é apenas um modelo para visualização</p>
@@ -44,7 +49,6 @@ const MainLayout: React.FC<MainLayoutProps> = ({
             {
               'md:object-cover md:object-top': isCover,
               'md:object-fill md:object-center': !isCover,
-              hidden: !hasMobileImg,
             }
           )}
         />
