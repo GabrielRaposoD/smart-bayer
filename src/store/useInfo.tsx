@@ -15,6 +15,7 @@ type InfoStoreProps = {
   template: Option;
   decrementCurrentStep: () => void;
   incrementCurrentStep: () => void;
+  setCurrentStep: (step) => void;
   setSteps: (steps) => void;
   setFirstName: (firstName: string) => void;
   setFullName: (fullName: string) => void;
@@ -41,6 +42,7 @@ export const useInfo = create<InfoStoreProps>((set) => ({
     set((state) => ({ currentStep: state.currentStep - 1 })),
   incrementCurrentStep: () =>
     set((state) => ({ currentStep: state.currentStep + 1 })),
+  setCurrentStep: (currentStep) => set({ currentStep }),
   setSteps: (steps) => set({ steps }),
   setFirstName: (firstName) => set({ firstName }),
   setFullName: (fullName) => set({ fullName }),

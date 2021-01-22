@@ -59,6 +59,6 @@ export const items: ScreenComponent[] = [
   {
     img: '/img/background-main-3.png',
     Component: VideoDone,
-    cardImg: 'img/preview-name.png',
+    cardImg: 'img/preview-done.png',
   },
 ];

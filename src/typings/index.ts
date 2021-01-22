@@ -34,11 +34,12 @@ export interface Template {
   id: number;
   type: string;
   steps: number[];
+  trackId: number;
 }
 
 export interface Option {
   label: string;
-  value: Company | Service | Template | Experience | Product;
+  value: any;
 }
 
 export interface ScreenComponent {
