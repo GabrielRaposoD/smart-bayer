@@ -7,7 +7,7 @@ import { useInfo } from '@store/useInfo';
 import { createVideo } from 'service/video.service';
 
 const VideoDone: React.FC = () => {
-  const { setCurrentStep } = useInfo();
+  const { setCurrentStep, video } = useInfo();
 
   createVideo();
 
@@ -25,9 +25,11 @@ const VideoDone: React.FC = () => {
         </h3>
         <div className='w-full'>
           <div className='mt-6'>
-            <button className='border-primary bg-primary md:w-2/3 w-full py-2 text-lg font-normal text-white border border-solid rounded-full'>
-              Baixar vídeo
-            </button>
+            <a href={video.url} download>
+              <button className='border-primary bg-primary md:w-2/3 w-full py-2 text-lg font-normal text-white border border-solid rounded-full'>
+                Baixar vídeo
+              </button>
+            </a>
           </div>
         </div>
       </div>

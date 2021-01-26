@@ -15,22 +15,16 @@ interface StepperProps {
 }
 
 const Stepper: React.FC<StepperProps> = ({ buttonState }) => {
-  const {
-    currentStep,
-    incrementCurrentStep,
-    decrementCurrentStep,
-    steps,
-    setVideo,
-  } = useInfo();
+  const info = useInfo();
   const formik = useFormikContext();
 
-  if (currentStep === 0) {
+  if (info.currentStep === 0) {
     return (
       <div className='flex justify-start w-full'>
         <Button
           title='Começar'
           state={ButtonState.normal}
-          onClick={() => incrementCurrentStep()}
+          onClick={() => info.incrementCurrentStep()}
         />
       </div>
     );
@@ -42,23 +36,20 @@ const Stepper: React.FC<StepperProps> = ({ buttonState }) => {
         <Button
           title='Voltar'
           state={ButtonState.inverse}
-          onClick={() => decrementCurrentStep()}
+          onClick={() => info.decrementCurrentStep()}
         />
       </div>
       <div className='w-1/2'>
         <Button
-          title={steps[currentStep] === 8 ? 'Criar Video' : 'Continuar'}
-          state={buttonState}
-          onClick={
-            formik
-              ? formik.handleSubmit
-              : () => {
-                  incrementCurrentStep();
-                  if (currentStep === 6) {
-                    setVideo(createVideo());
-                  }
-                }
+          title={
+            info.steps[info.currentStep] === 7 ? 'Criar Video' : 'Continuar'
           }
+          state={buttonState}
+          onClick={async () => {
+            if (formik) formik.handleSubmit;
+            info.incrementCurrentStep();
+            info.setVideo(await createVideo(info));
+          }}
         />
       </div>
     </div>

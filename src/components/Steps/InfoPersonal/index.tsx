@@ -31,6 +31,7 @@ const InfoPersonal: React.FC = () => {
     incrementCurrentStep,
     phone,
     setPhone,
+    setVideo,
   } = useInfo();
 
   return (
@@ -42,7 +43,6 @@ const InfoPersonal: React.FC = () => {
           setFullName(values.fullname);
           setEmail(values.email);
           setPhone(values.phone);
-          incrementCurrentStep();
         }}
       >
         <form className='md:min-h-0 md:pb-0 flex flex-col justify-between w-full h-full min-h-screen pb-10'>
