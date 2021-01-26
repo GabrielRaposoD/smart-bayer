@@ -4,12 +4,9 @@ import React from 'react';
 // Components Import
 import { Logo } from '@components/index';
 import { useInfo } from '@store/useInfo';
-import { createVideo } from 'service/video.service';
 
 const VideoDone: React.FC = () => {
   const { setCurrentStep, video } = useInfo();
-
-  createVideo();
 
   return (
     <div className='md:px-0 md:min-h-0 md:pb-0 flex flex-col items-start justify-between h-full min-h-screen px-6 pb-10'>

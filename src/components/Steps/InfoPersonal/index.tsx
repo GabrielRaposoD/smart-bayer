@@ -9,6 +9,7 @@ import { useInfo } from '@store/useInfo';
 import { TextInput } from '@components/TextInput';
 import { ButtonState } from '@typings/index';
 import { MaskedInputField } from '@components/MaskedInputField';
+import { createVideo } from 'service/video.service';
 
 const phoneRegex = /(\(?\d{2}\)?\s)?(\d{4,5}\-\d{4})/g;
 
@@ -23,26 +24,24 @@ const validationSchema = Yup.object({
 });
 
 const InfoPersonal: React.FC = () => {
-  const {
-    fullName,
-    setFullName,
-    email,
-    setEmail,
-    incrementCurrentStep,
-    phone,
-    setPhone,
-    setVideo,
-  } = useInfo();
+  const info = useInfo();
 
   return (
     <div className='md:px-0 md:min-h-0 md:pb-0 flex flex-col items-start justify-between h-full min-h-screen px-6 pb-10'>
       <Formik
         initialValues={{ fullname: '', email: '', phone: '' }}
         validationSchema={validationSchema}
-        onSubmit={(values) => {
-          setFullName(values.fullname);
-          setEmail(values.email);
-          setPhone(values.phone);
+        onSubmit={async (values) => {
+          info.setFullName(values.fullname);
+          info.setEmail(values.email);
+          info.setPhone(values.phone);
+          info.setVideo(
+            await createVideo({
+              ...info,
+              fullName: values.fullname,
+              phone: values.phone,
+            })
+          );
         }}
       >
         <form className='md:min-h-0 md:pb-0 flex flex-col justify-between w-full h-full min-h-screen pb-10'>
@@ -65,9 +64,9 @@ const InfoPersonal: React.FC = () => {
                 <TextInput
                   name='fullname'
                   placeholder='Digite'
-                  value={fullName}
+                  value={info.fullName}
                   onChange={(e) => {
-                    setFullName(e.target.value);
+                    info.setFullName(e.target.value);
                   }}
                 />
               </div>
@@ -76,9 +75,9 @@ const InfoPersonal: React.FC = () => {
                 <TextInput
                   name='email'
                   placeholder='Digite'
-                  value={email}
+                  value={info.email}
                   onChange={(e) => {
-                    setEmail(e.target.value);
+                    info.setEmail(e.target.value);
                   }}
                 />
               </div>
@@ -105,9 +104,9 @@ const InfoPersonal: React.FC = () => {
                   name='phone'
                   type='phone'
                   placeholder='(11) 99999-9999'
-                  value={phone}
+                  value={info.phone}
                   onChange={(e) => {
-                    setPhone(e.target.value);
+                    info.setPhone(e.target.value);
                   }}
                 />
               </div>

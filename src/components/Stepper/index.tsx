@@ -46,9 +46,8 @@ const Stepper: React.FC<StepperProps> = ({ buttonState }) => {
           }
           state={buttonState}
           onClick={async () => {
-            if (formik) formik.handleSubmit;
+            if (formik) formik.handleSubmit();
             info.incrementCurrentStep();
-            info.setVideo(await createVideo(info));
           }}
         />
       </div>
