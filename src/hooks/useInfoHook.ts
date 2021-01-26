@@ -1,33 +1,33 @@
 // Modules Import
-import { useEffect } from 'react'
-import * as Yup from 'yup'
+import { useEffect } from 'react';
+import * as Yup from 'yup';
 
 // Application Import
-import { useInfo } from '@store/useInfo'
+import { useInfo } from '@store/useInfo';
 
 const validationSchema = Yup.object({
   fullname: Yup.string().required('This field is required.'),
   email: Yup.string().email('Invalid email').required('Email is required.'),
-})
+});
 
 export function useInfoHook() {
-  const { firstName, fullName, email } = useInfo()
+  const { firstName, fullName, email, phone } = useInfo();
 
   async function checkValid(payload: any) {
     try {
-      const data = await validationSchema.validate(payload)
-      console.log(data)
+      const data = await validationSchema.validate(payload);
+      console.log(data);
     } catch (err) {
-      console.log(err)
-      console.log(err.errors)
+      console.log(err);
+      console.log(err.errors);
     }
   }
 
   useEffect(() => {
-    console.log(firstName, fullName, email)
-  }, [firstName, fullName, email])
+    console.log(firstName, fullName, email);
+  }, [firstName, fullName, email, phone]);
 
   return {
     operations: { checkValid },
-  }
+  };
 }

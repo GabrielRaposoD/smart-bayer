@@ -1,32 +1,65 @@
 // Module Imports
-import React from 'react'
+import React from 'react';
+import { QueryClient, QueryClientProvider, useQuery } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 
 // Components Import
-import { Logo } from '@components/index'
+import { Logo } from '@components/index';
 
 //Aplications Import
-import { BiLoaderAlt } from 'react-icons/bi'
-import { useInfo } from '@store/useInfo'
+import { BiLoaderAlt } from 'react-icons/bi';
+import { useInfo } from '@store/useInfo';
+
+const queryClient = new QueryClient();
 
 const LoadingVideo: React.FC = () => {
-  const { incrementCurrentStep } = useInfo()
-  incrementCurrentStep()
   return (
-    <div className="flex flex-col items-start min-h-screen px-6 md:px-0">
-      <div className="flex flex-col w-full px-40 py-20">
-        <Logo />
-      </div>
-      <div className="flex flex-col items-center self-center justify-center mt-40">
-        <BiLoaderAlt className="text-9xl animate-spin text-green" />
-        <h1 className="text-2xl md:text-4xl font-bold leading-snug text-gray-800">
-          Aguarde, Estamos criando seu vídeo
-        </h1>
-        <h3 className="mt-3 text-base md:text-xl font-medium text-gray-600">
-          Assim que o vídeo estiver pronto enviaremos o link de download para o seu e-mail
-        </h3>
-      </div>
-    </div>
-  )
-}
+    <QueryClientProvider client={queryClient}>
+      <LoadingVideoComponent />
+    </QueryClientProvider>
+  );
+};
 
-export { LoadingVideo }
+const LoadingVideoComponent: React.FC = () => {
+  const { incrementCurrentStep, video, setVideo } = useInfo();
+
+  const myHeaders = new Headers();
+  myHeaders.append('external-id', '9a7853da-6cc1-4afd-8212-371b598a2572');
+  myHeaders.append('token', '1392f700ac1f4f6036f6cf788a295d43');
+  const requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+  };
+
+  const { isLoading, data, isFetching } = useQuery('repoData', () =>
+    fetch(
+      `https://api.chiligumvideos.com/api/videos/${video.id}`,
+      requestOptions
+    ).then((res) => res.json())
+  );
+
+  if (isLoading || isFetching) {
+    return (
+      <div className='md:px-0 flex flex-col items-start min-h-screen px-6'>
+        <div className='flex flex-col w-full px-40 py-20'>
+          <Logo />
+        </div>
+        <div className='flex flex-col items-center self-center justify-center mt-40'>
+          <BiLoaderAlt className='text-9xl animate-spin text-green' />
+          <h1 className='md:text-4xl text-2xl font-bold leading-snug text-gray-800'>
+            Aguarde, Estamos criando seu vídeo
+          </h1>
+          <h3 className='md:text-xl mt-3 text-base font-medium text-gray-600'>
+            Assim que o vídeo estiver pronto enviaremos o link de download para
+            o seu e-mail
+          </h3>
+        </div>
+      </div>
+    );
+  } else if (data) {
+    setVideo(data);
+    incrementCurrentStep();
+  }
+};
+
+export { LoadingVideo };

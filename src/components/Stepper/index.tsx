@@ -8,6 +8,7 @@ import { useFormikContext } from 'formik';
 // Components Import
 import { Button } from '@components/index';
 import { useInfo } from '@store/useInfo';
+import { createVideo } from 'service/video.service';
 
 interface StepperProps {
   buttonState?: ButtonState;
@@ -19,6 +20,7 @@ const Stepper: React.FC<StepperProps> = ({ buttonState }) => {
     incrementCurrentStep,
     decrementCurrentStep,
     steps,
+    setVideo,
   } = useInfo();
   const formik = useFormikContext();
 
@@ -47,7 +49,16 @@ const Stepper: React.FC<StepperProps> = ({ buttonState }) => {
         <Button
           title={steps[currentStep] === 8 ? 'Criar Video' : 'Continuar'}
           state={buttonState}
-          onClick={formik ? formik.handleSubmit : () => incrementCurrentStep()}
+          onClick={
+            formik
+              ? formik.handleSubmit
+              : () => {
+                  incrementCurrentStep();
+                  if (currentStep === 6) {
+                    setVideo(createVideo());
+                  }
+                }
+          }
         />
       </div>
     </div>
