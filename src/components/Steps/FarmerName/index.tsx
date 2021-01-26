@@ -38,7 +38,7 @@ const FarmerName: React.FC = () => {
                 agricultor?
               </h1>
               <h3 className='mt-3 text-base font-medium text-gray-600'>
-                O nome aparecerá no material que você pode visualizar ao lado.
+                O nome aparecerá no material final renderizado.
               </h3>
               <div className='mt-4'>
                 <TextInput

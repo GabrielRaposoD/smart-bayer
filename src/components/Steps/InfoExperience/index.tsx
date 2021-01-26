@@ -11,7 +11,7 @@ import { useInfo } from '@store/useInfo';
 const InfoExperience: React.FC = () => {
   const { experience, setExperience } = useInfo();
   const mappedExperiences: Option[] = experiences.map((experience) => {
-    return { value: experience, label: experience.description };
+    return { value: experience, label: experience.name };
   });
 
   return (
@@ -29,7 +29,7 @@ const InfoExperience: React.FC = () => {
             aparecerão no material final renderizado.
           </h3>
           <div className='mt-10 text-base font-medium text-gray-600'>
-            <label>Qual a experiência oferecida </label>
+            <label>Qual a experiência oferecida? </label>
             <SelectInput
               options={mappedExperiences}
               value={experience}

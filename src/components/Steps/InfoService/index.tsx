@@ -30,7 +30,7 @@ const InfoService: React.FC = () => {
             aparecerão no material final renderizado.
           </h3>
           <div className='mt-10 text-base font-medium text-gray-600'>
-            <label>Qual o serviço oferecido </label>
+            <label>Qual o serviço oferecido? </label>
             <SelectInput
               options={mappedServices}
               value={service}

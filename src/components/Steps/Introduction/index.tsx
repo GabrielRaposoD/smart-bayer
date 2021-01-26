@@ -18,7 +18,7 @@ const Introduction: React.FC = () => {
           Crie um vídeo customizado para o seu cliente
         </h3>
         <h3 className='text-shaft md:text-2xl text-base font-medium'>
-          com as ações recomendadas no
+          com as ações recomendadas no{` `}
           <span className='font-bold'>Plano de Ação</span> e
         </h3>
         <h3 className='text-shaft md:text-2xl text-base font-medium'>
