@@ -1,5 +1,4 @@
 // Modules Import
-import { useEffect } from 'react';
 import * as Yup from 'yup';
 
 // Application Import
@@ -22,10 +21,6 @@ export function useInfoHook() {
       console.log(err.errors);
     }
   }
-
-  useEffect(() => {
-    console.log(firstName, fullName, email);
-  }, [firstName, fullName, email, phone]);
 
   return {
     operations: { checkValid },

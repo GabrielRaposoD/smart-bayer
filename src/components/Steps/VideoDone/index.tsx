@@ -1,12 +1,20 @@
 // Module Imports
-import React from 'react';
+import React, { useState } from 'react';
 
 // Components Import
 import { Logo } from '@components/index';
 import { useInfo } from '@store/useInfo';
+import downloadUrl from '@utils/download-url';
+import { sendVideoEmail } from 'service/video.service';
 
 const VideoDone: React.FC = () => {
-  const { setCurrentStep, video } = useInfo();
+  const { setCurrentStep, video, email } = useInfo();
+  const [emailSent, setEmailSent] = useState<boolean>(false);
+
+  if (!emailSent) {
+    setEmailSent(true);
+    sendVideoEmail(video.url, email);
+  }
 
   return (
     <div className='md:px-0 md:min-h-0 md:pb-0 flex flex-col items-start justify-between h-full min-h-screen px-6 pb-10'>
@@ -22,11 +30,12 @@ const VideoDone: React.FC = () => {
         </h3>
         <div className='w-full'>
           <div className='mt-6'>
-            <a href={video.url} download>
-              <button className='border-primary bg-primary md:w-2/3 w-full py-2 text-lg font-normal text-white border border-solid rounded-full'>
-                Baixar vídeo
-              </button>
-            </a>
+            <button
+              className='border-primary bg-primary md:w-2/3 w-full py-2 text-lg font-normal text-white border border-solid rounded-full'
+              onClick={() => downloadUrl(video.url, 'bayer-video.mp4')}
+            >
+              Baixar vídeo
+            </button>
           </div>
         </div>
       </div>

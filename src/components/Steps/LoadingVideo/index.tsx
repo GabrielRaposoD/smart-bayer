@@ -1,5 +1,5 @@
 // Module Imports
-import React from 'react';
+import React, { useEffect } from 'react';
 import { QueryClient, QueryClientProvider, useQuery } from 'react-query';
 
 // Components Import
@@ -34,36 +34,40 @@ const LoadingVideoComponent: React.FC = () => {
     'repoData',
     () =>
       fetch(
-        `https://api.chiligumvideos.com/api/videos/${video.id}`,
+        `https://staging.api.chiligumvideos.com/api/videos/${video.id}`,
         requestOptions
       ).then((res) => res.json()),
     {
-      refetchInterval: 1000,
+      refetchInterval: 5000,
+      enabled: Boolean(video),
     }
   );
 
-  if (data && data.processed) {
-    setVideo(data);
-    incrementCurrentStep();
-  } else {
-    return (
-      <div className='md:px-0 flex flex-col items-start min-h-screen px-6'>
-        <div className='flex flex-col w-full px-40 py-20'>
-          <Logo />
-        </div>
-        <div className='flex flex-col items-center self-center justify-center mt-40'>
-          <BiLoaderAlt className='text-9xl animate-spin text-green' />
-          <h1 className='md:text-4xl text-2xl font-bold leading-snug text-gray-800'>
-            Aguarde, Estamos criando seu vídeo
-          </h1>
-          <h3 className='md:text-xl mt-3 text-base font-medium text-gray-600'>
-            Assim que o vídeo estiver pronto enviaremos o link de download para
-            o seu e-mail
-          </h3>
-        </div>
+  useEffect(() => {
+    if (data && data.processed) {
+      console.log('oi');
+      setVideo(data);
+      incrementCurrentStep();
+    }
+  }, [data]);
+
+  return (
+    <div className='md:px-0 flex flex-col items-start min-h-screen px-6'>
+      <div className='flex flex-col w-full px-40 py-20'>
+        <Logo />
       </div>
-    );
-  }
+      <div className='flex flex-col items-center self-center justify-center mt-40'>
+        <BiLoaderAlt className='text-9xl animate-spin text-green' />
+        <h1 className='md:text-4xl text-2xl font-bold leading-snug text-gray-800'>
+          Aguarde, Estamos criando seu vídeo
+        </h1>
+        <h3 className='md:text-xl mt-3 text-base font-medium text-gray-600'>
+          Assim que o vídeo estiver pronto enviaremos o link de download para o
+          seu e-mail
+        </h3>
+      </div>
+    </div>
+  );
 };
 
 export { LoadingVideo };

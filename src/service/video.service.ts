@@ -1,3 +1,4 @@
+import { emailTemplate } from './../mocks/email';
 export const createVideo = async ({
   product,
   template,
@@ -50,16 +51,49 @@ export const createVideo = async ({
     );
   }
 
-  var requestOptions = {
+  const requestOptions = {
     method: 'POST',
     headers: myHeaders,
     body: formdata,
+    redirect: 'follow' as RequestRedirect,
+    mode: 'cors' as RequestMode,
   };
 
   const data = await fetch(
-    'https://api.chiligumvideos.com/api/videos',
+    'https://staging.api.chiligumvideos.com/api/videos',
     requestOptions
   ).then((response) => response.json());
 
   return data;
+};
+
+export const sendVideoEmail = (url, userEmail) => {
+  const email = emailTemplate(url);
+
+  var myHeaders = new Headers();
+  myHeaders.append(
+    'Authorization',
+    'Basic Y2hpbGlndW06Y2hpbGlndW1fYWRtaW5pc3RyYXRvcg=='
+  );
+  myHeaders.append('Content-Type', 'application/json');
+
+  const data = {
+    from: { name: 'Chiligum Creatives', email: 'admin@chiligumvideos.com' },
+    to: userEmail,
+    message_title: 'Testes',
+    html: email,
+  };
+
+  const requestOptions = {
+    method: 'GET',
+    headers: myHeaders,
+    body: data,
+    redirect: 'follow',
+  };
+
+  fetch(
+    'https://ybgviasmge.execute-api.us-east-1.amazonaws.com/prod/send_email',
+    //@ts-ignore
+    requestOptions
+  );
 };
