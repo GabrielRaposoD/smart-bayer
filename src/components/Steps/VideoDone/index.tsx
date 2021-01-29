@@ -12,6 +12,7 @@ const VideoDone: React.FC = () => {
   const [emailSent, setEmailSent] = useState<boolean>(false);
 
   if (!emailSent) {
+    console.log('oi');
     setEmailSent(true);
     sendVideoEmail(video.url, email);
   }
