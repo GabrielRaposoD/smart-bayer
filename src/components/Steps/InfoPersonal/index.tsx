@@ -14,7 +14,7 @@ const phoneRegex = /(\(?\d{2}\)?\s)?(\d{4,5}\-\d{4})/g;
 
 const validationSchema = Yup.object({
   fullname: Yup.string()
-    .max(27, 'O Nome não pode passar de 27 caracteres')
+    .max(17, 'O Nome não pode passar de 17 caracteres')
     .required('Insira seu nome completo'),
   email: Yup.string()
     .email('E-mail incorreto')
