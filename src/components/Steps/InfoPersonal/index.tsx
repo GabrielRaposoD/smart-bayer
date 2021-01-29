@@ -50,7 +50,7 @@ const InfoPersonal: React.FC = () => {
             </div>
             <div className='mt-16'>
               <h1 className='md:text-4xl text-2xl font-bold leading-snug text-gray-800'>
-                Insira suas inFormações
+                Insira suas informações
                 <br />
                 pessoais
               </h1>
@@ -58,7 +58,7 @@ const InfoPersonal: React.FC = () => {
                 Além de poder baixar, você também receberá o arquivo final por
                 email.
               </h3>
-              <div className='mt-10 text-base font-medium text-gray-600'>
+              <div className='2xl:mt-10 mt-8 text-base font-medium text-gray-600'>
                 <label>Seu nome completo </label>
                 <TextInput
                   name='fullname'
@@ -69,7 +69,7 @@ const InfoPersonal: React.FC = () => {
                   }}
                 />
               </div>
-              <div className='mt-10 text-base font-medium text-gray-600'>
+              <div className='2xl:mt-10 mt-8 text-base font-medium text-gray-600'>
                 <label>Seu e-mail </label>
                 <TextInput
                   name='email'
@@ -80,7 +80,7 @@ const InfoPersonal: React.FC = () => {
                   }}
                 />
               </div>
-              <div className='mt-10 text-base font-medium text-gray-600'>
+              <div className='2xl:mt-10 mt-8 text-base font-medium text-gray-600'>
                 <label>Seu telefone </label>
                 <MaskedInputField
                   mask={[

@@ -21,7 +21,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({
     <div className='md:flex-row md:justify-between md:max-h-screen flex flex-col-reverse justify-end w-full min-h-screen'>
       <div
         className={cs(
-          'md:w-1/2 md:min-h-screen md:px-40 md:py-20 flex flex-col'
+          'md:w-1/2 md:min-h-screen 2xl:px-40 md:px-20 md:py-20 flex flex-col'
         )}
       >
         {children}
