@@ -13,7 +13,9 @@ import { createVideo } from 'service/video.service';
 const phoneRegex = /(\(?\d{2}\)?\s)?(\d{4,5}\-\d{4})/g;
 
 const validationSchema = Yup.object({
-  fullname: Yup.string().required('Insira seu nome completo'),
+  fullname: Yup.string()
+    .max(27, 'O Nome não pode passar de 27 caracteres')
+    .required('Insira seu nome completo'),
   email: Yup.string()
     .email('E-mail incorreto')
     .required('Insira seu e-mail completo'),

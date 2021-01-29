@@ -1,4 +1,4 @@
-export default async function downloadUrl(url: string, name?: string): void {
+export default async function downloadUrl(url: string, name?: string) {
   return await fetch(url, {
     method: 'GET',
   })

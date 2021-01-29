@@ -12,6 +12,7 @@ import { useInfo } from '@store/useInfo';
 const validationSchema = Yup.object({
   firstName: Yup.string()
     .min(3, 'Nome requer ao menos 3 caracteres')
+    .max(27, 'O Nome não pode passar de 27 caracteres')
     .required('This field is required.'),
 });
 
