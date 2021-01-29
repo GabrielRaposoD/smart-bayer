@@ -23,16 +23,17 @@ const LoadingVideoComponent: React.FC = () => {
   const { incrementCurrentStep, video, setVideo } = useInfo()
 
   const myHeaders = new Headers()
-  myHeaders.append('external-id', '9a7853da-6cc1-4afd-8212-371b598a2572')
-  myHeaders.append('token', '1392f700ac1f4f6036f6cf788a295d43')
+  myHeaders.append('external-id', 'a3b8d4c3-d639-4cc0-b6e6-894cf9898bd1')
+  myHeaders.append('token', '0ebf28b8cc1c4fe407eabef4575e3a24')
   const requestOptions = {
     method: 'GET',
     headers: myHeaders,
+    redirect: 'follow' as RequestRedirect,
   }
 
   const { data } = useQuery(
     'repoData',
-    () => fetch(`https://api.chiligum.com.br/api/videos/${video.id}`, requestOptions).then((res) => res.json()),
+    () => fetch(`https://api.chiligum.com.br/api/videos/1103922`, requestOptions).then((res) => res.json()),
     {
       refetchInterval: 5000,
       enabled: Boolean(video.id),
