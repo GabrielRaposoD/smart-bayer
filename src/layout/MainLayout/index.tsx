@@ -36,7 +36,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({
         )}
       >
         {hasCard && (
-          <div className='bg-snow mt-28 relative z-10 w-6/12 py-2 text-center rounded-lg'>
+          <div className='bg-snow 2xl:mt-28 2xl:w-6/12 relative z-10 w-8/12 py-2 mt-16 text-center rounded-lg'>
             <p>o material abaixo é apenas um modelo para visualização</p>
           </div>
         )}
@@ -44,7 +44,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({
           <img
             src={cardImg}
             alt=''
-            className={cs('z-10 rounded-lg shadow-2xl w-80', {
+            className={cs('z-10 rounded-lg shadow-2xl 2xl:w-80 w-72', {
               'mt-4': hasCard,
               'mt-40 pt-2': !hasCard,
             })}
