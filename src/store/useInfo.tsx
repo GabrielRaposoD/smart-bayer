@@ -1,35 +1,35 @@
 // Modules Import
-import create from 'zustand';
-import { Option } from '@typings/index';
+import create from 'zustand'
+import { Option } from '@typings/index'
 
 type InfoStoreProps = {
-  currentStep: number;
-  steps: number[];
-  firstName: string;
-  fullName: string;
-  phone: string;
-  email: string;
-  service: Option;
-  company: Option;
-  product: Option;
-  experience: Option;
-  template: Option;
-  video: any;
-  decrementCurrentStep: () => void;
-  incrementCurrentStep: () => void;
-  setCurrentStep: (step) => void;
-  setSteps: (steps) => void;
-  setFirstName: (firstName: string) => void;
-  setFullName: (fullName: string) => void;
-  setPhone: (phone: string) => void;
-  setEmail: (email: string) => void;
-  setService: (service: Option) => void;
-  setCompany: (company: Option) => void;
-  setProduct: (product: Option) => void;
-  setExperience: (experience: Option) => void;
-  setTemplate: (template: Option) => void;
-  setVideo: (video: any) => void;
-};
+  currentStep: number
+  steps: number[]
+  firstName: string
+  fullName: string
+  phone: string
+  email: string
+  service: Option
+  company: Option
+  product: Option
+  experience: Option
+  template: Option
+  video: any
+  decrementCurrentStep: () => void
+  incrementCurrentStep: () => void
+  setCurrentStep: (step) => void
+  setSteps: (steps) => void
+  setFirstName: (firstName: string) => void
+  setFullName: (fullName: string) => void
+  setPhone: (phone: string) => void
+  setEmail: (email: string) => void
+  setService: (service: Option) => void
+  setCompany: (company: Option) => void
+  setProduct: (product: Option) => void
+  setExperience: (experience: Option) => void
+  setTemplate: (template: Option) => void
+  setVideo: (video: any) => void
+}
 
 export const useInfo = create<InfoStoreProps>((set) => ({
   currentStep: 0,
@@ -44,10 +44,8 @@ export const useInfo = create<InfoStoreProps>((set) => ({
   experience: null,
   template: null,
   video: { processed: false },
-  decrementCurrentStep: () =>
-    set((state) => ({ currentStep: state.currentStep - 1 })),
-  incrementCurrentStep: () =>
-    set((state) => ({ currentStep: state.currentStep + 1 })),
+  decrementCurrentStep: () => set((state) => ({ currentStep: state.currentStep - 1 })),
+  incrementCurrentStep: () => set((state) => ({ currentStep: state.currentStep + 1 })),
   setCurrentStep: (currentStep) => set({ currentStep }),
   setSteps: (steps) => set({ steps }),
   setFirstName: (firstName) => set({ firstName }),
@@ -60,4 +58,4 @@ export const useInfo = create<InfoStoreProps>((set) => ({
   setExperience: (experience) => set({ experience }),
   setTemplate: (template) => set({ template }),
   setVideo: (video) => set({ video }),
-}));
+}))
