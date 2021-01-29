@@ -7,7 +7,6 @@ import * as Yup from 'yup'
 import { Logo, Stepper } from '@components/index'
 import { useInfo } from '@store/useInfo'
 import { TextInput } from '@components/TextInput'
-import { ButtonState } from '@typings/index'
 import { MaskedInputField } from '@components/MaskedInputField'
 import { createVideo } from 'service/video.service'
 
@@ -31,11 +30,6 @@ const InfoPersonal: React.FC = () => {
           info.setFullName(values.fullname)
           info.setEmail(values.email)
           info.setPhone(values.phone)
-          console.log({
-            ...info,
-            fullName: values.fullname,
-            phone: values.phone,
-          })
           info.setVideo(
             await createVideo({
               ...info,
@@ -97,7 +91,7 @@ const InfoPersonal: React.FC = () => {
             </div>
           </div>
           <div className="w-full mt-6">
-            <Stepper buttonState={ButtonState.normal} />
+            <Stepper />
           </div>
         </form>
       </Formik>

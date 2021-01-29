@@ -42,7 +42,6 @@ const LoadingVideoComponent: React.FC = () => {
 
   useEffect(() => {
     if (data && data.processed) {
-      console.log('oi')
       setVideo(data)
       incrementCurrentStep()
     }

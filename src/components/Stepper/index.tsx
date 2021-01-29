@@ -32,7 +32,13 @@ const Stepper: React.FC<StepperProps> = ({ buttonState }) => {
       <div className="w-1/2">
         <Button
           title={info.steps[info.currentStep] === 7 ? 'Criar Video' : 'Continuar'}
-          state={buttonState}
+          state={
+            buttonState
+              ? buttonState
+              : Object.keys(formik.errors).length === 0 && Object.keys(formik.touched).length > 0
+              ? ButtonState.normal
+              : ButtonState.disabled
+          }
           onClick={async () => {
             if (formik) formik.handleSubmit()
             info.incrementCurrentStep()
