@@ -6,6 +6,55 @@ export const createVideo = async ({ product, template, firstName, fullName, phon
   myHeaders.append('external-id', '9a7853da-6cc1-4afd-8212-371b598a2572')
   myHeaders.append('token', '1392f700ac1f4f6036f6cf788a295d43')
 
+  console.log('Test with JSON')
+
+  const jsonTest = {
+    video: {
+      name: 'smart_bayer',
+      track_id: template.value.trackId,
+      template_id: template.value.id,
+      data: {
+        texto_nome_agricultor_01: firstName,
+        texto_contato_01: fullName,
+        texto_contato_02: phone,
+      },
+    },
+  }
+
+  if (company) {
+    jsonTest.video.data = {
+      ...jsonTest.video.data,
+      ...{
+        texto_produto_01: company.value.description,
+        foto_produto_01: product.value.photoUri,
+        titulo_hibrido_01: product.value.name,
+        texto_hibrido_01: product.value.description,
+      },
+    }
+  }
+
+  if (service) {
+    jsonTest.video.data = {
+      ...jsonTest.video.data,
+      ...{
+        titulo_servico_01: service.value.name,
+        texto_servico_01: service.value.description,
+        foto_servico_01: service.value.photoUri,
+      },
+    }
+  }
+
+  if (experience) {
+    jsonTest.video.data = {
+      ...jsonTest.video.data,
+      ...{
+        texto_experiencia_01: experience.value.description,
+        texto_experiencia_02: experience.value.secondDescription,
+        foto_experiencia_01: experience.value.photoUri,
+      },
+    }
+  }
+
   var formdata = new FormData()
   formdata.append('[video]name', 'smart_bayer')
   formdata.append('[video]track_id', template.value.trackId)
@@ -33,6 +82,8 @@ export const createVideo = async ({ product, template, firstName, fullName, phon
     formdata.append('[video][data]foto_experiencia_01', experience.value.photoUri)
   }
 
+  console.log(jsonTest)
+
   const requestOptions = {
     method: 'POST',
     headers: myHeaders,
@@ -40,7 +91,7 @@ export const createVideo = async ({ product, template, firstName, fullName, phon
     redirect: 'follow' as RequestRedirect,
   }
 
-  const data = await axios.post('https://api.chiligum.com.br/api/videos', formdata, {
+  const data = await axios.post('https://api.chiligum.com.br/api/videos', jsonTest, {
     headers: {
       'external-id': '9a7853da-6cc1-4afd-8212-371b598a2572',
       token: '1392f700ac1f4f6036f6cf788a295d43',
