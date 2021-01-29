@@ -56,11 +56,10 @@ export const createVideo = async ({
     headers: myHeaders,
     body: formdata,
     redirect: 'follow' as RequestRedirect,
-    mode: 'cors' as RequestMode,
   };
 
   const data = await fetch(
-    'https://staging.api.chiligumvideos.com/api/videos',
+    'https://api.chiligum.com.br/api/videos',
     requestOptions
   ).then((response) => response.json());
 

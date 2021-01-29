@@ -34,7 +34,7 @@ const LoadingVideoComponent: React.FC = () => {
     'repoData',
     () =>
       fetch(
-        `https://staging.api.chiligumvideos.com/api/videos/${video.id}`,
+        `https://api.chiligum.com.br/api/videos/${video.id}`,
         requestOptions
       ).then((res) => res.json()),
     {
