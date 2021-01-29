@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
 // Components Import
 import { Logo } from '@components/index'
 
-//Aplications Import
+// Applications Import
 import { BiLoaderAlt } from 'react-icons/bi'
 import { useInfo } from '@store/useInfo'
 
@@ -33,7 +33,7 @@ const LoadingVideoComponent: React.FC = () => {
 
   const { data } = useQuery(
     'repoData',
-    () => fetch(`https://api.chiligum.com.br/api/videos/${video.id}`, requestOptions).then((res) => res.json()),
+    () => fetch(`https://api.chiligumvideos.com/api/videos/${video.id}`, requestOptions).then((res) => res.json()),
     {
       refetchInterval: 5000,
       enabled: Boolean(video.id),

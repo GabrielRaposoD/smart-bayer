@@ -1,4 +1,3 @@
-import axios from 'axios'
 import { emailTemplate } from './../mocks/email'
 
 export const createVideo = async ({ product, template, firstName, fullName, phone, company, service, experience }) => {
@@ -46,7 +45,6 @@ export const createVideo = async ({ product, template, firstName, fullName, phon
     response.json()
   )
 
-  console.log('Foi')
   return data
 }
 
