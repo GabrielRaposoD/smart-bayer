@@ -12,6 +12,8 @@ const IndexPage: React.FC = () => {
   const { video, steps, currentStep } = useInfo()
   const item = items[steps[currentStep] - 1]
 
+  console.log(video)
+
   if (steps[currentStep] === 8) {
     return <item.Component />
   }
@@ -21,7 +23,7 @@ const IndexPage: React.FC = () => {
       img={item.img}
       isCover={item.isCover}
       hasCard={item.hasCard}
-      cardImg={video ? video.thumbnail_url : item.cardImg}
+      cardImg={video.thumbnail_url || item.cardImg}
       hasMobileImg={item.hasMobileImg}
     >
       <item.Component />
