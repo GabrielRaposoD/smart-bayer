@@ -31,6 +31,10 @@ const LoadingVideoComponent: React.FC = () => {
     redirect: 'follow' as RequestRedirect,
   }
 
+  useEffect(() => {
+    fetch(`https://api.chiligum.com.br/api/videos/1103922`, requestOptions).then((res) => res.json())
+  }, [])
+
   const { data } = useQuery(
     'repoData',
     () => fetch(`https://api.chiligum.com.br/api/videos/1103922`, requestOptions).then((res) => res.json()),
