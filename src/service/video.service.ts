@@ -72,7 +72,7 @@ export const sendVideoEmail = (url, userEmail) => {
   const data = {
     from: { name: 'Chiligum Creatives', email: 'admin@chiligumvideos.com' },
     to: userEmail,
-    message_title: 'Testes',
+    message_title: 'Seu vídeo está pronto',
     html: email,
   };
 

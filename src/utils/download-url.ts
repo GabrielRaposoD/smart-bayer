@@ -1,12 +1,15 @@
-export default function downloadUrl(url: string, name?: string): void {
-  const element = document.createElement('a')
-  element.setAttribute('href', url)
-  element.setAttribute('download', name)
-
-  element.style.display = 'none'
-  document.body.appendChild(element)
-
-  element.click()
-
-  document.body.removeChild(element)
+export default async function downloadUrl(url: string, name?: string): void {
+  return await fetch(url, {
+    method: 'GET',
+  })
+    .then((response) => response.blob())
+    .then((blob) => {
+      var url = window.URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = 'bayer_video.mp4';
+      document.body.appendChild(a); // we need to append the element to the dom -> otherwise it will not work in firefox
+      a.click();
+      a.remove(); //afterwards we remove the element again
+    });
 }
