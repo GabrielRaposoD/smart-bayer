@@ -278,6 +278,7 @@ export const emailTemplate = (url) => {
           margin: 0;
           width: 100%;
           height: 100%;
+          min-height: 486px;
           background-repeat: repeat;
           background-position: center top;
         "
