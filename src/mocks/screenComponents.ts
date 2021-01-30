@@ -27,7 +27,7 @@ export const items: ScreenComponent[] = [
     img: '/img/background-main-3.png',
     Component: FarmerName,
     hasCard: true,
-    cardImg: 'img/preview-name.png',
+    cardImg: 'img/preview-done.png',
   },
   {
     img: '/img/background-main-3.png',
@@ -48,9 +48,10 @@ export const items: ScreenComponent[] = [
     cardImg: 'img/preview-experience.png',
   },
   {
-    img: '/img/background-main.png',
+    img: '/img/background-main-3.png',
     Component: InfoPersonal,
-    isCover: true,
+    hasCard: true,
+    cardImg: 'img/preview-name.png',
   },
   {
     img: '/img/background-main-3.png',

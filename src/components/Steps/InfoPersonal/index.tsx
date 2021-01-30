@@ -61,7 +61,7 @@ const InfoPersonal: React.FC = () => {
                 email.
               </h3>
               <div className='2xl:mt-10 mt-8 text-base font-medium text-gray-600'>
-                <label>Seu nome completo </label>
+                <label>Seu seu primeiro nome</label>
                 <TextInput
                   name='fullname'
                   placeholder='Digite'

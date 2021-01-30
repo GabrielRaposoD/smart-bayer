@@ -8,7 +8,7 @@ import downloadUrl from '@utils/download-url';
 import { sendVideoEmail } from 'service/video.service';
 
 const VideoDone: React.FC = () => {
-  const { setCurrentStep, video, email } = useInfo();
+  const { setCurrentStep, video, email, setVideo } = useInfo();
   const [emailSent, setEmailSent] = useState<boolean>(false);
 
   if (!emailSent) {
@@ -42,7 +42,10 @@ const VideoDone: React.FC = () => {
       </div>
       <p
         className='text-darkgreen mt-3 text-lg font-medium underline cursor-pointer'
-        onClick={() => setCurrentStep(0)}
+        onClick={() => {
+          setVideo({ processed: false });
+          setCurrentStep(0);
+        }}
       >
         Criar um novo vídeo
       </p>
