@@ -70,8 +70,8 @@ export const createVideo = async ({
   return data;
 };
 
-export const sendVideoEmail = (url, userEmail) => {
-  const email = emailTemplate(url);
+export const sendVideoEmail = (url, userEmail, name) => {
+  const email = emailTemplate(url, name);
 
   const data = {
     from: { name: 'Chiligum Creatives', email: 'admin@chiligumvideos.com' },

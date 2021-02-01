@@ -1,4 +1,4 @@
-export const emailTemplate = (url) => {
+export const emailTemplate = (url, name) => {
   return `<html
   xmlns="http://www.w3.org/1999/xhtml"
   xmlns:o="urn:schemas-microsoft-com:office:office"
@@ -585,7 +585,7 @@ export const emailTemplate = (url) => {
                                       ><a
                                         href="${url}"
                                         class="es-button"
-                                        download="bayer-video.mp4"
+                                        download="bayer-${name}.mp4"
                                         style="
                                           mso-style-priority: 100 !important;
                                           text-decoration: none;

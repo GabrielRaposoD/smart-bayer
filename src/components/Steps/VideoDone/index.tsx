@@ -8,13 +8,13 @@ import downloadUrl from '@utils/download-url';
 import { sendVideoEmail } from 'service/video.service';
 
 const VideoDone: React.FC = () => {
-  const { setCurrentStep, video, email, setVideo } = useInfo();
+  const { setCurrentStep, video, email, setVideo, firstName } = useInfo();
   const [emailSent, setEmailSent] = useState<boolean>(false);
 
   if (!emailSent) {
     console.log('oi');
     setEmailSent(true);
-    sendVideoEmail(video.url, email);
+    sendVideoEmail(video.url, email, firstName);
   }
 
   return (
@@ -33,7 +33,7 @@ const VideoDone: React.FC = () => {
           <div className='mt-6'>
             <button
               className='border-primary bg-primary md:w-2/3 w-full py-2 text-lg font-normal text-white border border-solid rounded-full'
-              onClick={() => downloadUrl(video.url, 'bayer-video.mp4')}
+              onClick={() => downloadUrl(video.url, firstName)}
             >
               Baixar vídeo
             </button>

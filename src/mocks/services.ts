@@ -24,7 +24,7 @@ export const services: Service[] = [
   {
     description: 'Gestão de Irrigação',
     name:
-      'Tenha acesso a uma irrigação mais inteligente que poderá aumentar seus níveis de produtividade.',
+      'Tenha acesso a uma irrigação mais inteligente que poderá aumentar seus níveis de produtividade',
     photoUri:
       'https://d20aasqov94ke3.cloudfront.net/gallery/images/dc739519209a124136fa6e68c491fad80947900b.jpg?Expires=1674334113&Signature=lvD-AHLqW4hiQAqn-nF4LLrfTQomWQm5VAZGtHkm~0N193BvXQRf9UOmqNltsFgsSYr5YWGTmNSSCE4mlzSDmfb7yvei7NyC5xIgdf1bXdSKhHu6uT0WjEMoqWpAHB5cIZBmfseBsIBpZvKUTktJHHpc0Oy4HCJHr9Y9iGagOPnts7jA6Qi-oz8mVhu3FISnSFQjzRAdhHJjLhoxYLiSJK98HnhsylWu1hTro5IYZXvaoaMEo3wy05-fM4G6tbhqXMRPnMDVnNC--0MYuzZNXcv4QFONmtUsDq0uPuR1HRht4tY-AMK-TIDIWCb90mawALhafboaAzpczAVE-kLWiQ__&Key-Pair-Id=APKAJ22WF26BLHIHK4LQ',
   },
@@ -75,7 +75,7 @@ export const services: Service[] = [
   {
     description: 'Tratamento de Sementes',
     name:
-      'Tenha mais eficiência no controle de pragas e uniformidade na distribuição de ativos!',
+      'Tenha mais eficiência no controle de pragas e uniformidade na distribuição de ativos',
     photoUri:
       'https://d20aasqov94ke3.cloudfront.net/gallery/images/d4c1a2b434d598fbfac1fc652438f47b06be1fcd.jpg?Expires=1674334498&Signature=gvExhbEdyB5ucUClZmG941aZZv0jhdE7aNMed2oM6ZP40IK8TFjIsIGaJDS0nx78MMf7CRAnObflZBgMMKRSXdAYeejKQzJb3kBvuNpeB7ZkQI6d36ddXeMV9bk8IRCy01kkfHAERubQ0WeMVWs-GsHaxocA5sdyiySJL9C-DYgBKyndmmKggoTb0Y2~byIoDgdqkj6e74YUeKvTNIxZMVYGSpWDCGGF~hoL7REws9aEXflGN2ks9a4Bl5WZNUuEYbTFd0xQFn-hoJZtF7NcmOJzN7bYSBNbIwXx9~7BF~lDgHgMy2SuhkPetyXZEnGve7-4iMVDfpvRuSiJn3M~Tw__&Key-Pair-Id=APKAJ22WF26BLHIHK4LQ',
   },

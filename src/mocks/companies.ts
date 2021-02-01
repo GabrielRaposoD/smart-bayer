@@ -139,7 +139,7 @@ export const companies: Company[] = [
       },
       {
         name: 'AS 1820 PRO3®',
-        description: 'Excelente produtividade para todos os ambientes.',
+        description: 'Excelente produtividade para todos os ambientes',
         photoUri:
           'https://d20aasqov94ke3.cloudfront.net/gallery/images/42a219e698c45d3fe8d5da5c8cf561cc8748d378.png?Expires=1674332954&Signature=eEyYG7zz3qAzeLL8AnEyLB4eBS8o47A7s9oInVXKki43zFJW7CNLrdWPdX4WiTnLkzgdYK0GXq0NIlDFBEEW8fpxbJSzlBWcEL-wpL6J5yblnu5JK5bn2UpSFTx2g16HSvP1Z2JMdbohselZ7Xvw6JBWwVT8RGCh6Sk29qwgVFwDXn-dQVe3WV2v4oYJaWN7h3aQMUc7LIF3gelWz31aMg~kkexmPPEQ0oB66cGRYnT8urKZxUXeRqm5wpv0pghjQie6pcu72qsUeTDlHJPq6Z9tj0DtlRwxaFXe5ywzEwASZQqZhb0AsTLHmRlbtSW4lTzCQe9qvbrneCAbUN601g__&Key-Pair-Id=APKAJ22WF26BLHIHK4LQ',
       },

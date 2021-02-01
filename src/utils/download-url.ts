@@ -7,7 +7,7 @@ export default async function downloadUrl(url: string, name?: string) {
       var url = window.URL.createObjectURL(blob);
       var a = document.createElement('a');
       a.href = url;
-      a.download = 'bayer_video.mp4';
+      a.download = name ? `bayer_${name}.mp4` : 'bayer_video.mp4';
       document.body.appendChild(a); // we need to append the element to the dom -> otherwise it will not work in firefox
       a.click();
       a.remove(); //afterwards we remove the element again
